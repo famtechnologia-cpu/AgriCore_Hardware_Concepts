@@ -462,13 +462,19 @@ def build_feedpro():
     b.part("Lid_Handle",         *cyl(0,0.935,0, 0.012,0.16,seg=16,axis='z'), STEEL)
     b.part("Hopper_Level_Window",*box(0.355,0.55,0, 0.008,0.30,0.08), PC)
 
-    # Auger tube + motor
-    b.part("Auger_Assembly",     *cyl(0,0.00,0, 0.058,0.68,seg=20,axis='x'), ALU)
-    b.part("Auger_Housing",      *box(0,0.00,0, 0.70,0.13,0.13), HDPE)
-    b.part("Auger_Output_Spout", *cyl(0.44,0.00,0, 0.040,0.18,seg=16,axis='x'), HDPE)
-    b.part("Motor_Drive",        *box(-0.38,-0.02,0, 0.160,0.150,0.150), DARK)
-    b.part("Motor_Cooling_Fins", *merge([box(-0.40+j*0.014,-0.02,0, 0.006,0.130,0.130)
-                                          for j in range(5)]), ALU)
+    # Pneumatic Broadcast System (Replaces Auger for Fish Feeding)
+    b.part("Blower_Housing",     *box(0,-0.05,0, 0.45,0.25,0.35), DARK)
+    b.part("Blower_Motor",       *cyl(-0.28,-0.05,0, 0.09,0.18, axis='x'), ALU)
+    b.part("Air_Intake_Grill",   *merge([cyl(-0.38,-0.05,0, 0.08,0.02, axis='x'), 
+                                          box(-0.39,-0.05,0, 0.01,0.16,0.16)]), DARK)
+    
+    # Directional Spray Nozzle (Variable width broadcaster)
+    b.part("Broadcast_Manifold", *cyl(0.30,-0.05,0, 0.06,0.18, axis='x'), STEEL)
+    b.part("Variable_Width_Nozzle", *merge([rbox(0.44,-0.05,0, 0.12,0.08,0.16, ay=0.3)]), HDPE)
+    b.part("Nozzle_Deflector_Fins", *merge([box(0.46,-0.05,z, 0.08,0.06,0.005) for z in [-0.05, 0, 0.05]]), ALU)
+    
+    # Actuator for width control
+    b.part("Width_Control_Actuator", *cyl(0.38, 0.02, 0, 0.02, 0.12, axis='y'), STEEL)
 
     # Control box
     b.part("Control_Box",        *box(0.32,0.32,0.32, 0.170,0.210,0.055), DARK)
@@ -481,9 +487,9 @@ def build_feedpro():
         b.part(f"Load_Cell_Mount_{x:.1f}_{z:.1f}",
                *merge([cyl(x,-0.70,z, 0.025,0.06),
                         box(x,-0.74,z, 0.080,0.018,0.050)]), STEEL)
-    # Legs
+    # Legs (Dock Mounts)
     for x,z in [(-0.40,-0.28),(0.40,-0.28),(-0.40,0.28),(0.40,0.28)]:
-        b.part(f"Leg_{x:.1f}_{z:.1f}",*cyl(x,-0.56,z, 0.016,0.32), STEEL)
+        b.part(f"Dock_Mount_Leg_{x:.1f}_{z:.1f}",*cyl(x,-0.56,z, 0.016,0.32), STEEL)
 
     b.save(f"{OUT}/feedpro.glb")
 
