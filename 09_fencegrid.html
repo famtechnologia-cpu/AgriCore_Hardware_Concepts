@@ -171,13 +171,42 @@
       </div>
 </div>
   </section>
-  
-  
-  
-  
-  
-  
-  
+
+  <section class="photos-section" style="margin: 40px 0;">
+    <h2><span class="section-num">◷</span> Product Imagery</h2>
+    <div class="photos-grid photos-grid-single">
+      <figure class="photo-card">
+        <img src="fencegrid_hero_1779400158295.png" alt="Famtech Fencegrid — perimeter sensor node mounted on fence post" loading="lazy">
+        <figcaption>Field installation — FG-100 node U-bolt mounted to fenceline with antenna, status LED &amp; sealed cable gland</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <style>
+    .photos-section h2 { margin-bottom: 1rem; }
+    .photos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .photos-grid-single { grid-template-columns: minmax(0, 620px); justify-content: center; }
+    .photo-card {
+      margin: 0; background: #060c1b;
+      border: 1px solid rgba(30,48,96,0.8);
+      border-radius: 16px; overflow: hidden;
+      transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+    }
+    .photo-card:hover {
+      border-color: rgba(16,185,129,0.35);
+      box-shadow: 0 0 30px rgba(16,185,129,0.10);
+      transform: translateY(-3px);
+    }
+    .photo-card img { display: block; width: 100%; height: auto; }
+    .photo-card figcaption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.03em; color: #5a7aaa;
+      padding: 12px 16px; border-top: 1px solid rgba(20,35,72,0.9);
+      background: linear-gradient(180deg, #080e20 0%, #060c1a 100%);
+    }
+    @media (max-width: 768px) { .photos-grid { grid-template-columns: 1fr; } }
+  </style>
+
         <section class="views-section" style="margin: 40px 0;">
     <h2 style="text-align:center; margin-bottom:10px;">High-Fidelity 3D Photorealistic Renders</h2>
     <p style="color: var(--text-muted); text-align:center; margin-bottom: 30px;">True Physically-Based Rendering (PBR) exactly matching the 360 viewer</p>

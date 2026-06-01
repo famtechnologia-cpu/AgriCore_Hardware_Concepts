@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "AgriCore Catalog",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3131", "--directory", "/Users/rapid-002/Famtech Agricore /AgriCore_Hardware_Concepts"],
+      "port": 3131
+    }
+  ]
+}

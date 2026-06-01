@@ -171,13 +171,45 @@
       </div>
 </div>
   </section>
-  
-  
-  
-  
-  
-  
-  
+
+  <section class="photos-section" style="margin: 40px 0;">
+    <h2><span class="section-num">◷</span> Product Imagery</h2>
+    <div class="photos-grid">
+      <figure class="photo-card">
+        <img src="herdtag_hero_1779400063942.png" alt="Famtech Herdtag — ear-tag and collar-strap variants" loading="lazy">
+        <figcaption>Product variants — ear-tag with piercing pin (left) &amp; collar-strap wearable with USB-C (right)</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="herdtag_exploded_1779400078958.png" alt="Famtech Herdtag — exploded view of internal components" loading="lazy">
+        <figcaption>Exploded view — TPU overmould, Li-Po battery, LoRa radio (SX1262), 6-axis IMU &amp; sealing gasket</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <style>
+    .photos-section h2 { margin-bottom: 1rem; }
+    .photos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .photo-card {
+      margin: 0; background: #060c1b;
+      border: 1px solid rgba(30,48,96,0.8);
+      border-radius: 16px; overflow: hidden;
+      transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+    }
+    .photo-card:hover {
+      border-color: rgba(16,185,129,0.35);
+      box-shadow: 0 0 30px rgba(16,185,129,0.10);
+      transform: translateY(-3px);
+    }
+    .photo-card img { display: block; width: 100%; height: auto; }
+    .photo-card figcaption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.03em; color: #5a7aaa;
+      padding: 12px 16px; border-top: 1px solid rgba(20,35,72,0.9);
+      background: linear-gradient(180deg, #080e20 0%, #060c1a 100%);
+    }
+    @media (max-width: 768px) { .photos-grid { grid-template-columns: 1fr; } }
+  </style>
+
         <section class="views-section" style="margin: 40px 0;">
     <h2 style="text-align:center; margin-bottom:10px;">High-Fidelity 3D Photorealistic Renders</h2>
     <p style="color: var(--text-muted); text-align:center; margin-bottom: 30px;">True Physically-Based Rendering (PBR) exactly matching the 360 viewer</p>
